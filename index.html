@@ -1480,6 +1480,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="email" id="emailInput" name="email" placeholder="твой@email.com" required>
         </div>
         <input type="hidden" name="program" id="programField">
+        <input type="hidden" name="programDesc" id="programDescField">
         <button type="submit" class="btn-primary btn-full">Прислать ссылку</button>
       </form>
       <p class="disclaimer">Никакого спама — только ссылка на установку и напоминание. Отписаться можно в любой момент</p>
@@ -1570,6 +1571,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('resultTitle').textContent = program.title;
     document.getElementById('resultDesc').textContent = program.desc;
     document.getElementById('programField').value = program.title;
+    document.getElementById('programDescField').value = program.desc;
   }
 
   function goToStep(stepName) {
@@ -1599,7 +1601,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       body: JSON.stringify({
         name: form.name.value,
         email: form.email.value,
-        program: form.program.value
+        program: form.program.value,
+        programDesc: form.programDesc.value
       })
     }).catch(() => {});
 
