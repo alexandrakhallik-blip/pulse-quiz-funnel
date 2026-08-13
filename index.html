@@ -1593,6 +1593,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     submitBtn.disabled = true;
     submitBtn.textContent = 'Отправляем...';
 
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        program: form.program.value
+      })
+    }).catch(() => {});
+
     fetch(form.action, {
       method: 'POST',
       body: new FormData(form),
